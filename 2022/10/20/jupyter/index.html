@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.zhenghaoxuan.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://www.zhenghaoxuan.com/2022/10/20/jupyter/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.zhenghaoxuan.com/2022/10/20/jupyter/","path":"2022/10/20/jupyter/","title":"jupyter notebook win11自启动并可远程访问"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>jupyter notebook win11自启动并可远程访问 | HaoXuan's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HaoXuan's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">好记性不如烂笔头</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">18</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%BC%96%E5%86%99%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">1. 编写启动脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-number"></span> <span class="nav-text">2. 设置脚本开机自启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AE%BE%E7%BD%AEnotebook%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">3. 设置notebook远程访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E6%96%B9%E6%B3%951-ssh%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8jupyter-notebook"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 方法1 ssh远程使用jupyter notebook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E6%96%B9%E6%B3%952-%E5%88%A9%E7%94%A8jupyter-notebook%E8%87%AA%E5%B8%A6%E7%9A%84%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E5%8A%9F%E8%83%BD"><span class="nav-number">1.2.</span> <span class="nav-text">3.2 方法2  利用jupyter notebook自带的远程访问功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%85%AC%E7%BD%91%E8%AE%BF%E9%97%AEnotebook"><span class="nav-number">1.3.</span> <span class="nav-text">4. 公网访问notebook</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HaoXuan"
+      src="https://hexo-ufoozhenghao.oss-cn-beijing.aliyuncs.com/avatar.gif">
+  <p class="site-author-name" itemprop="name">HaoXuan</p>
+  <div class="site-description" itemprop="description">HaoXuan的博客，备忘记录</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ufoozhenghao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ufoozhenghao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ufoozhenghao@gmail.com" title="E-Mail → mailto:ufoozhenghao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+  <a href="https://github.com/ufoozhenghao" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhenghaoxuan.com/2022/10/20/jupyter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://hexo-ufoozhenghao.oss-cn-beijing.aliyuncs.com/avatar.gif">
+      <meta itemprop="name" content="HaoXuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HaoXuan's Blog">
+      <meta itemprop="description" content="HaoXuan的博客，备忘记录">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="jupyter notebook win11自启动并可远程访问 | HaoXuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jupyter notebook win11自启动并可远程访问
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-20 22:42:02" itemprop="dateCreated datePublished" datetime="2022-10-20T22:42:02+08:00">2022-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-24 11:59:04" itemprop="dateModified" datetime="2023-08-24T11:59:04+08:00">2023-08-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>把下面的代码存储为 <strong>bat</strong> 结尾的批处理脚本。</p>
+<h3 id="1-编写启动脚本"><a href="#1-编写启动脚本" class="headerlink" title="1. 编写启动脚本"></a>1. 编写启动脚本</h3><p>把下面的代码存储为 bat 结尾的批处理脚本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure>
+
+<p>放到存放 <strong>python</strong> 项目的位置，在这里启动服务，默认进的就是这个目录。</p>
+<p> 然后给右键，给 <strong>bat</strong> 脚本创建一个快捷方式。</p>
+<p><img src="https://hexo-ufoozhenghao.oss-cn-beijing.aliyuncs.com/BlogHexo/image-20221020224627561.png" alt="image-20221020224627561"></p>
+<span id="more"></span>
+
+<h2 id="2-设置脚本开机自启动"><a href="#2-设置脚本开机自启动" class="headerlink" title="2. 设置脚本开机自启动"></a>2. 设置脚本开机自启动</h2><p>按win+ R，键入<code>shell:startup</code>，然后选择“确定”。这将打开“启动”文件夹。下图是我的文件目录</p>
+<p><img src="https://hexo-ufoozhenghao.oss-cn-beijing.aliyuncs.com/BlogHexo/image-20221020224820922.png" alt="image-20221020224820922"></p>
+<p>将刚刚创建的快捷方式剪切进打开的文件夹中。之后右键window图标 –&gt; 设置 –&gt; 应用 –&gt;启动 可以看到要设置为自启动的应用程序</p>
+<p><img src="https://hexo-ufoozhenghao.oss-cn-beijing.aliyuncs.com/BlogHexo/image-20221020225032923.png" alt="image-20221020225032923"></p>
+<p>至此，开机便可以自启动 <code>jupyter notebook</code></p>
+<h3 id="3-设置notebook远程访问"><a href="#3-设置notebook远程访问" class="headerlink" title="3. 设置notebook远程访问"></a>3. 设置notebook远程访问</h3><h4 id="3-1-方法1-ssh远程使用jupyter-notebook"><a href="#3-1-方法1-ssh远程使用jupyter-notebook" class="headerlink" title="3.1 方法1 ssh远程使用jupyter notebook"></a>3.1 方法1 ssh远程使用jupyter notebook</h4><p>在远程服务器上，启动jupyter notebooks服务：</p>
+<p><code>jupyter notebook --no-browser --port=8889</code></p>
+<p>在本地终端中启动SSH：</p>
+<p><code>ssh -N -f -L localhost:8888:localhost:8889 username@serverIP</code><br>其中： -N 告诉SSH没有命令要被远程执行； -f 告诉SSH在后台执行； -L 是指定port forwarding的配置，远端端口是8889，本地的端口号的8888。</p>
+<p>注意：<code>username@serverIP</code>替换成服务器的对应账号。</p>
+<p>最后打开浏览器，访问：<a target="_blank" rel="noopener" href="http://localhost:8888/">http://localhost:8888/</a></p>
+<h4 id="3-2-方法2-利用jupyter-notebook自带的远程访问功能"><a href="#3-2-方法2-利用jupyter-notebook自带的远程访问功能" class="headerlink" title="3.2 方法2  利用jupyter notebook自带的远程访问功能"></a>3.2 方法2  利用jupyter notebook自带的远程访问功能</h4><p>生成默认配置文件</p>
+<p><code>jupyter notebook --generate-config</code></p>
+<p>生成访问密码(token)<br>终端输入<code>ipython</code>，设置你自己的jupyter访问密码，注意复制输出的密码串 <code>rgon2:$xxxxxxxxx</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line">In [<span class="number">2</span>]: passwd()</span><br><span class="line">Enter password:</span><br><span class="line">Verify password:</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">&#x27;rgon2:$xxxxxxxxxxxxxxxx&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>资源管理器进入：<code>C:\Users\你的账户名\.jupyter</code>:</p>
+<p>编辑<code>jupyter_notebook_config.py</code>，添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip=&#x27;*&#x27;</span><br><span class="line">c.NotebookApp.password = u&#x27;&#x27;rgon2:$xxxxxxxxxxxxxxxx&#x27; #刚才复制的那个密文&#x27;</span><br><span class="line">c.NotebookApp.open_browser = False</span><br><span class="line">c.NotebookApp.port =8888 #可自行指定一个端口, 访问时使用该端口</span><br></pre></td></tr></table></figure>
+
+<p>保存并启动jupyter notebook</p>
+<p><code>jupyter notebook</code><br>最后打开浏览器，访问：<a target="_blank" rel="noopener" href="http://ip:8888/">http://ip:8888/</a></p>
+<h4 id="4-公网访问notebook"><a href="#4-公网访问notebook" class="headerlink" title="4. 公网访问notebook"></a>4. 公网访问notebook</h4><p>首先需要确认是拨号上网，并且有公网IP。</p>
+<p>其次需要在软路由上或者其他常开设备如nas上设置ddns。我的主路由是ikuai系统。</p>
+<p><img src="https://hexo-ufoozhenghao.oss-cn-beijing.aliyuncs.com/BlogHexo/image-20221020230535268.png" alt="image-20221020230535268"></p>
+<p>最后在路由管理界面设置端口转发。</p>
+<p><img src="https://hexo-ufoozhenghao.oss-cn-beijing.aliyuncs.com/BlogHexo/image-20221020230619360.png" alt="image-20221020230619360"></p>
+<p>完结。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/24/for24methods/" rel="prev" title="for24methods">
+                  <i class="fa fa-chevron-left"></i> for24methods
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/27/installnode/" rel="next" title="宝塔面板安装node备忘">
+                  宝塔面板安装node备忘 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">辽ICP备2021004570号-1 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HaoXuan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+
+</body>
+</html>
